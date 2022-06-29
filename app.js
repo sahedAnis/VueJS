@@ -3,26 +3,16 @@ const app = Vue.createApp({
         return {
             showBooks: true,
             title: 'Title1',
-            age: 45,
-            x : 0,
-            y : 0
+            books: [
+                { title : 'book1', author: 'author1'},
+                { title : 'book2', author: 'author2'},
+                { title : 'book2', author: 'author3'}
+            ]
         }
     },
     methods: {
         toggleShowTitle() {
             this.showBooks = !this.showBooks;
-        },
-
-        handleEvent(e, data){
-            console.log(e, e.type);
-            if (data){
-                console.log(data);
-            }
-        },
-
-        handleMousemove(e){
-            this.x = e.offsetX;
-            this.y = e.offsetY;
         }
     }
 }) 

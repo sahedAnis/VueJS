@@ -21,11 +21,13 @@
     <h1>Hello VueJS!</h1>
     <div id="app">
         <div v-if="showBooks">
-            <h4> {{ title }} - {{ age }} </h4>
+            <ul>
+                <li v-for="book in books">
+                    <h3> {{ book.title }} </h3>
+                    <p> {{ book.author }} </p>
+                </li>
+            </ul>
         </div>
-        <button v-on:click="age++">Increase age</button><br><br>
-        <button @click="age--">Decrease age</button>
-        <div @click="changeTitle">Changer le titre</div><br>
 
         <button @click="toggleShowTitle">
             <span v-if="showBooks">Hide Books</span>
@@ -35,6 +37,7 @@
         <br>
 
         <!-- Mouse events -->
+        <h3>Mouse events :</h3>
         <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
         <div class="box"  @mouseleave="handleEvent">mouseleave</div>
         <div class="box" @dblclick="handleEvent">double click</div>
