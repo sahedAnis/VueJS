@@ -63,7 +63,7 @@ export default {
     text-decoration: none;
     margin: 10px;
   }
-  .modal.sale {
+   .modal.sale {
     background: crimson;
     color: white;
   }
