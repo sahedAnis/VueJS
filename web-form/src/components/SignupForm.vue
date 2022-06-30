@@ -16,12 +16,17 @@
         <input type="checkbox" required v-model="terms">
         <label>Accept terms and conditions</label>
     </div>
+
+    <label>Skills:</label>
+    <input type="text" v-model="tempSkill" @keyup="addSkill">
+    <div v-for="skill in skills" class="pill">
+        {{ skill }}
+    </div>
   </form>
 
   <p> E-mail {{ email }}</p>
   <p> Password {{ password }}</p>
   <p> Role {{ role }}</p>
-  <p> Terms accepted : {{ terms }}</p>
 
 </template>
 
@@ -33,6 +38,18 @@ export default {
             password: '',
             role: '',
             terms: false,
+            tempSkill : '',
+            skills : []
+        }
+    },
+    methods: {
+        addSkill(e) {
+          if(e.key === ',' && this.tempSkill) {
+            if(!this.skills.includes(this.tempSkill)){
+                this.skills.push(this.tempSkill.substring(0, this.tempSkill.length-1))   
+            }
+            this.tempSkill = ''
+          }
         }
     }
 }
